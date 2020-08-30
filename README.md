@@ -113,10 +113,11 @@ pip install -r requirements.txt
 python manage.py makemigrations
 python manage.py migrate
 ```
-**e) Create the superuser to acess the platform**
+**e) Create the superuser to acess the platform**  
+
 ```python manage.py createsuperuser```
 
-**f) You neeed to do the same for prd .env**
+**f) You neeed to do the same for prd .env**  
 First you have to change the .env. For you prd enviroment, put this bellow:  
 
 ```
@@ -135,8 +136,31 @@ DB_PORT = "3306"
 ```
 After the change the .env, execute again steps **d** and **e**.  
 
-**g)Execute the server**
+**g)Execute the server**  
 ```python manage.py runserver 0:8000```
 
+### 6. Expose Deamon
+This step is related to use docker and containers with jenkins. The first step is to configure and expose daemon docker to external. Follow the steps bellow:
 
+**Create diretory**
+
+```sudo mkdir -p /etc/systemd/system/docker.service.d/```
+
+**Create the file**
+
+```sudo vi /etc/systemd/system/docker.service.d/override.conf```
+
+**Put the text bellow in the file to expose in the port 2376**
+
+```
+Service]
+ExecStart=
+ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0:2376
+```
+**Reload and Restart Daemon**
+
+```
+sudo systemctl daemon-reload
+sudo systemctl restart docker.service
+```
 
