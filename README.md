@@ -8,7 +8,7 @@ This project is related to study and create pipelines on jenkins local.
 wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
 ```
 
-**Add the adress** 
+**Add the address** 
 
 ```
 sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
@@ -79,11 +79,11 @@ Open this windows &nbsp;
 ### 4. Create your first job
 In your jenkins, execute the steps.
 
-**1-** Click in New Item &nbsp;
-**2-** Put the name of your job and choice the Freestyle project &nbsp;
-**3-** In the Source Code Management select git and put the ssh's repository and select the key you created before. &nbsp;
-**4-** In the trigger builds select Pool SCM and put * * * * &nbsp;
-**5-** Select Delete workspace before build starts &nbsp;
+**1-** Click in New Item  
+**2-** Put the name of your job and choice the Freestyle project  
+**3-** In the Source Code Management select git and put the ssh's   repository and select the key you created before.  
+**4-** In the trigger builds select Pool SCM and put * * * *  
+**5-** Select Delete workspace before build starts  
 
 
 
