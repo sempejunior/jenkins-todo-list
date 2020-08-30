@@ -1,21 +1,17 @@
-# django-todolist
+This project is related to study and create pipelines on jenkins local.
 
-Simple todolist write in django for general use and pipeline automation..
+1- Install Jenkins on Ubuntu
 
-  - Be kind with my baby
+```wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -```
 
-### Quick and free tip:
+```sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'```
 
-> With great power comes great responsibility
+```sudo apt update```
+
+```sudo apt install jenkins```
 
 
-### Tech
 
-Dillinger uses a number of open source projects to work properly:
-
-* [Django] - Django makes it easier to build better Web apps more quickly and with less code.
-* [Python-Venv] - The venv module provides support for creating lightweight “virtual environments” with their own site directories
-* [MySQL] - MySQL is an Oracle-backed open source relational database management system (RDBMS) based on Structured Query Language (SQL).
 
 
 ### Installation
