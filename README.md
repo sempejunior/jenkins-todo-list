@@ -85,25 +85,58 @@ In your jenkins, execute the steps.
 **4-** In the trigger builds select Pool SCM and put * * * *  
 **5-** Select Delete workspace before build starts  
 
+### 5. Installation dependencies
 
+Install in your local machine the dependencies and start the server.  
 
-
-### Installation
-
-Install the dependencies and start the server.
-
-```sh
-$ cd django-todolist
-$ pip install -r requirements.txt
-$ python manage.py migrate # Running the migrations
-$ python manage.py createsuperuser # Create a superuser
-$ python manage.py runserver
+**a) Install pip3**  
+```
+sudo apt-get update
+sudo apt-get -y install python3-pip
 ```
 
+**b) Install venv**
+
+```sudo pip3 install virtualenv nose coverage nosexcover pylint```
+
+**c) Create and ativate venv (dev)**  
+
+```
+cd ../    
+virtualenv  --always-copy  venv-django-todolist
+source venv-django-todolist/bin/activate
+pip install -r requirements.txt
+```
+
+**d) Initial data migration**
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+**e) Create the superuser to acess the platform**
+```python manage.py createsuperuser```
+
+**f) You neeed to do the same for prd .env**
+First you have to change the .env. For you prd enviroment, put this bellow:  
+
+```
+# Secret configuration
+SECRET_KEY = 'r*5ltfzw-61ksdm41fuul8+hxs$86yo9%k1%k=(!@=-wv4qtyv'
+# conf
+DEBUG=True
+
+# Database
+DB_NAME = "todo"
+DB_USER = "devops"
+DB_PASSWORD = "mestre"
+DB_HOST = "localhost"
+DB_PORT = "3306"
+
+```
+After the change the .env, execute again steps **d** and **e**.  
+
+**g)Execute the server**
+```python manage.py runserver 0:8000```
 
 
 
-License
-----
-
-GPL
