@@ -1,6 +1,6 @@
 This project is related to study and create pipelines on jenkins local.
 
-###  1- Install Jenkins on Ubuntu
+###  1. Install Jenkins on Ubuntu
 
 **Add the key to repository**
 
@@ -16,17 +16,17 @@ sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sour
 
 **Execute the update for apt use the new repository**
 
-"sudo apt update"
+```sudo apt update```
 
 **Install Jenkins**
 
-"sudo apt install jenkins"
+```sudo apt install jenkins```
 
 **Start Jenkins**
 
-"sudo systemctl start jenkins"
+```sudo systemctl start jenkins```
 
-### 2- Install MySql
+### 2. Install MySql
 
 You can also use one docker image with mySql or you can install mySql in you machine. The steps below are for local installation.
 
@@ -39,7 +39,7 @@ sudo apt-get install mysql-server
 
 **Start mySql**
 
-"sudo systemctl start mysql"
+```sudo systemctl start mysql```
 
 **Create users**
 
@@ -62,6 +62,29 @@ FLUSH PRIVILEGES;
 CREATE DATABASE todo;
 CREATE DATABASE todo;
 ```
+
+### 3. Put your sh key on jenkins
+
+If you dont have this key, you need to create and after execute the steps below.
+
+**Cat the key**
+```cat ~/.ssh/id_rsa```
+
+Put your sh key on your jenkins &nbsp;
+Open this windows &nbsp;
+
+**Click in your profile** / **Credentials** / **Jenkins** / **Global Credentials** / **Add Crendentials** / SSH Username with private key [ *put your key* ]
+
+
+### 4. Create your first job
+In your jenkins, execute the steps.
+
+**1-** Click in New Item &nbsp;
+**2-** Put the name of your job and choice the Freestyle project &nbsp;
+**3-** In the Source Code Management select git and put the ssh's repository and select the key you created before. &nbsp;
+**4-** In the trigger builds select Pool SCM and put * * * * &nbsp;
+**5-** Select Delete workspace before build starts &nbsp;
+
 
 
 
